@@ -429,7 +429,7 @@ const InvitationContent = () => {
         {/* FOOTER TIP */}
         <div ref={addToScrollRefs} className="reveal-fade-up mb-4">
           <div className="footer-tip-banner">
-            टीप - कृपया अहेर व भेटवस्तू स्वीकारल्या जाणार नाहीत. आपली उपस्थिती हाच अनमोल आहे.
+            टीप - कृपया आहेर व भेटवस्तू स्वीकारल्या जाणार नाहीत. आपली उपस्थिती हाच अनमोल आहेर.
           </div>
         </div>
 
