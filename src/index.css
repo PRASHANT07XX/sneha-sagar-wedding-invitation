@@ -1,0 +1,83 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #110804;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-align: left;
+  display: block;
+}
+
+/* @media print override to format the invitation card for PDF generation */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  #root {
+    width: 100% !important;
+    height: auto !important;
+    background: #ffffff !important;
+  }
+
+  .wedding-root {
+    background: #ffffff !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .card-perspective-container {
+    perspective: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100% !important;
+    padding: 0 !important;
+  }
+
+  .wedding-card-wrapper {
+    box-shadow: none !important;
+    transform: none !important;
+    height: auto !important;
+  }
+
+  /* Hide elements we don't want in the printed version */
+  .cover-flap,
+  .royal-seal-container,
+  .action-buttons-container,
+  .pulse-button,
+  canvas,
+  button,
+  .swing-lantern {
+    display: none !important;
+  }
+
+  .invitation-inner-card {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    border: 4px double #aa7c11 !important;
+    background: #ffffff !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    overflow-y: visible !important;
+  }
+}

@@ -1,0 +1,714 @@
+﻿<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajsi Marathi Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Poppins:wght@400;500;600;700&family=Tiro+Devanagari+Marathi:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fff8e8;
+      --ivory: #fff8e8;
+      --gold: #d4a017;
+      --darkgold: #9f6b00;
+      --maroon: #9b1026;
+      --deepred: #b5162b;
+      --text: #2c1b10;
+      --surface: #fff4df;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.12);
+      --border-soft: rgba(212, 160, 23, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 22%),
+        radial-gradient(circle at bottom right, rgba(212, 160, 23, 0.14), transparent 20%),
+        linear-gradient(180deg, #fff8e8 0%, #f8f0dd 60%, #fff3d8 100%);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 10% 12%, rgba(212, 160, 23, 0.12) 0%, transparent 18%),
+        radial-gradient(circle at 85% 18%, rgba(212, 160, 23, 0.1) 0%, transparent 16%);
+      pointer-events: none;
+    }
+
+    .stage {
+      width: min(100%, 960px);
+      perspective: 1800px;
+      position: relative;
+    }
+
+    .card-shell {
+      width: 100%;
+      min-height: 600px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .card-shell.opened {
+      transform: translateY(-10px);
+    }
+
+    .card-face {
+      width: 100%;
+      min-height: 600px;
+      border-radius: 34px;
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card-cover {
+      background: linear-gradient(180deg, #fff8e8 0%, #f9f1e1 100%);
+      border: 2px solid rgba(212, 160, 23, 0.35);
+      padding: 40px 36px;
+      display: grid;
+      grid-template-rows: auto 1fr auto auto;
+      gap: 18px;
+      position: relative;
+      transform-origin: left center;
+      transform: rotateY(0deg);
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+    }
+
+    .card-shell.opened .card-cover {
+      transform: rotateY(-160deg) translateX(-18px);
+      opacity: 0.94;
+    }
+
+    .card-inner {
+      background: #fff8e8;
+      border: 2px solid rgba(212, 160, 23, 0.35);
+      padding: 30px;
+      transform: rotateY(180deg);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease 0.15s, transform 0.7s ease 0.15s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-shell.opened .card-inner {
+      opacity: 1;
+      pointer-events: auto;
+      transform: rotateY(0deg);
+    }
+
+    .cover-border {
+      position: absolute;
+      inset: 0;
+      border-radius: 34px;
+      pointer-events: none;
+    }
+
+    .cover-border::before,
+    .cover-border::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border-radius: 28px;
+      border: 1px solid rgba(212, 160, 23, 0.55);
+    }
+
+    .cover-border::after {
+      inset: 18px;
+      border-color: rgba(212, 160, 23, 0.28);
+    }
+
+    .cover-main {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+      height: 100%;
+    }
+
+    .cover-tag {
+      color: #9b1026;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .cover-symbol {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: radial-gradient(circle at top, #ffe8b8, #d4a017 36%, #9f6b00 100%);
+      border: 1px solid rgba(212, 160, 23, 0.9);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5), 0 10px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .cover-symbol svg {
+      width: 44px;
+      height: 44px;
+      fill: #9b1026;
+    }
+
+    .cover-title {
+      text-align: center;
+    }
+
+    .cover-title h1 {
+      margin: 0;
+      font-family: 'Tiro Devanagari Marathi', serif;
+      font-size: clamp(3rem, 6vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: 0.05em;
+      color: #b5162b;
+    }
+
+    .cover-note {
+      margin: 0 auto;
+      max-width: 360px;
+      color: #442c21;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .cover-button {
+      width: min(250px, 100%);
+      margin: 0 auto;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 160, 23, 0.9);
+      background: linear-gradient(135deg, #ffebbb 0%, #d4a017 100%);
+      color: #9b1026;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cover-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 34px rgba(0, 0, 0, 0.16);
+    }
+
+    .cover-divider {
+      width: 86px;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.9), transparent);
+    }
+
+    .cover-footer {
+      color: #6c3a28;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 160, 23, 0.85);
+      background: rgba(255, 255, 255, 0.94);
+      color: #9b1026;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      z-index: 2;
+      transition: transform 0.2s ease;
+    }
+
+    .close-button:hover {
+      transform: scale(1.05);
+    }
+
+    .invitation-shell {
+      width: 100%;
+      max-width: 920px;
+      background: linear-gradient(180deg, #fff8e8 0%, #fff4df 100%);
+      border-radius: 30px;
+      border: 1px solid rgba(212, 160, 23, 0.33);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.83);
+    }
+
+    .invitation-shell::before {
+      content: '';
+      position: absolute;
+      inset: 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(212, 160, 23, 0.18);
+      pointer-events: none;
+    }
+
+    .pattern-layer {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 18% 12%, rgba(212, 160, 23, 0.08) 0%, transparent 18%),
+        radial-gradient(circle at 85% 18%, rgba(212, 160, 23, 0.08) 0%, transparent 16%),
+        linear-gradient(90deg, rgba(212, 160, 23, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(212, 160, 23, 0.03) 1px, transparent 1px);
+      background-size: 124px 124px, 180px 180px, 20px 20px, 20px 20px;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    .intro-text {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-text .blessing {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      color: var(--maroon);
+    }
+
+    .intro-text .headline {
+      margin: 0;
+      font-family: 'Tiro Devanagari Marathi', serif;
+      color: var(--deepred);
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: 0.05em;
+    }
+
+    .intro-text .subtitle {
+      margin: 0;
+      color: #4e3026;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 780px;
+    }
+
+    .name-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .name-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 26px;
+      padding: 24px 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .name-card::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border-radius: 20px;
+      border: 1px dashed rgba(212, 160, 23, 0.22);
+      pointer-events: none;
+    }
+
+    .name-card h2 {
+      margin: 0 0 10px;
+      color: var(--maroon);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .name-card .name {
+      margin: 0;
+      color: var(--deepred);
+      font-family: 'Tiro Devanagari Marathi', serif;
+      font-size: 2.4rem;
+      line-height: 1.05;
+    }
+
+    .name-card .degree {
+      display: inline-block;
+      margin-left: 0.35rem;
+      font-size: 1rem;
+      color: #7a211f;
+      font-weight: 600;
+    }
+
+    .name-card p {
+      margin: 16px 0 0;
+      color: #4c3027;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .wedding-panel {
+      margin-bottom: 24px;
+      padding: 26px 24px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    .wedding-panel::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.9), transparent);
+    }
+
+    .wedding-panel h3 {
+      margin: 0;
+      font-family: 'Tiro Devanagari Marathi', serif;
+      color: var(--deepred);
+      font-size: clamp(3rem, 5vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: 0.06em;
+    }
+
+    .wedding-panel p {
+      margin: 18px auto 0;
+      max-width: 740px;
+      color: #4f322b;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .detail-box {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 24px;
+      padding: 20px 18px;
+      text-align: center;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.05);
+    }
+
+    .detail-box h4 {
+      margin: 0 0 10px;
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--maroon), var(--deepred));
+      color: #fff;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .detail-box p {
+      margin: 0;
+      color: #4f322b;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .detail-box .important {
+      color: var(--maroon);
+      font-weight: 700;
+    }
+
+    .invite-note {
+      margin-bottom: 24px;
+      padding: 22px 24px;
+      border-left: 4px solid rgba(212, 160, 23, 0.95);
+      background: rgba(255, 250, 240, 0.95);
+      border-radius: 22px;
+      color: #4f322b;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.05);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .category-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(212, 160, 23, 0.32);
+      border-radius: 24px;
+      padding: 20px 18px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.05);
+    }
+
+    .category-card h5 {
+      margin: 0 0 12px;
+      color: var(--maroon);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .category-card p {
+      margin: 0;
+      color: #4f322b;
+      line-height: 1.75;
+      font-size: 0.94rem;
+    }
+
+    .footer-note {
+      padding: 18px 20px;
+      text-align: center;
+      color: var(--maroon);
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 245, 233, 0.95);
+      font-weight: 700;
+      font-size: 0.96rem;
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 920px) {
+      .name-grid,
+      .details-grid,
+      .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card-shell {
+        min-height: 640px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 16px;
+      }
+
+      .card-shell {
+        min-height: 620px;
+      }
+
+      .card-cover {
+        padding: 30px 24px;
+      }
+
+      .cover-title h1 {
+        font-size: 3rem;
+      }
+
+      .cover-symbol {
+        width: 74px;
+        height: 74px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .stage {
+        width: 100%;
+      }
+
+      .card-cover,
+      .card-inner {
+        border-radius: 24px;
+      }
+
+      .invitation-shell {
+        padding: 24px;
+      }
+
+      .name-grid,
+      .details-grid,
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cover-button {
+        width: 100%;
+      }
+
+      .intro-text .headline {
+        font-size: 2.8rem;
+      }
+
+      .invitation-shell::before {
+        inset: 16px;
+      }
+
+      .close-button {
+        top: 18px;
+        right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card-shell" id="cardShell">
+      <div class="card-face card-cover">
+        <div class="cover-border"></div>
+        <div class="cover-main">
+          <p class="cover-tag">|| श्री गणेशाय नमः ||</p>
+          <div class="cover-symbol" aria-hidden="true">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 8c-4 0-8 2-8 8 0 5 3 8 8 8s8-3 8-8c0-6-4-8-8-8Zm0 10c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2Z" />
+              <path d="M16 40c0-8 10-10 16-10s16 2 16 10c0 4-3 8-8 10 0 0-2 3-8 3s-8-3-8-3c-5-2-8-6-8-10Z" />
+              <path d="M28 24c0-5 8-5 8 0v4h-8v-4Z" />
+            </svg>
+          </div>
+          <div class="cover-title">
+            <h1>Open Invitation</h1>
+          </div>
+          <p class="cover-note">एक आधुनिक राजसी मराठी विवाह आमंत्रण जे सोनेरी रेषा व स्वच्छ लेआउटसह प्रीमियम अनुभव देते.</p>
+          <button class="cover-button" id="openButton" type="button">Open Invitation</button>
+          <div class="cover-divider"></div>
+          <div class="cover-footer">Royal Marathi Card</div>
+        </div>
+      </div>
+
+      <div class="card-face card-inner">
+        <button class="close-button" id="closeButton" aria-label="Close invitation">×</button>
+        <div class="invitation-shell">
+          <div class="pattern-layer"></div>
+          <div class="intro-text">
+            <p class="blessing">|| श्री गणेशाय नमः ||</p>
+            <h1 class="headline">शुभविवाह</h1>
+            <p class="subtitle">चि. सौ. कां. स्नेहा व चि. सागर यांचा पवित्र विवाह सोहळा आपली उपस्थिति मागतो.</p>
+          </div>
+
+          <div class="name-grid">
+            <div class="name-card">
+              <h2>वधू</h2>
+              <p class="name">चि. सौ. कां. स्नेहा <span class="degree">(B.Sc.Agri)</span></p>
+              <p>कै. भानुदास आप्पा वगरे यांची नात वसौ. कुसुम व श्री. रामकृष्ण भानुदास वगरे (रा. जैनवाडी ता. माळशिरस जि. सोलापूर यांची जेष्ठ कन्या)</p>
+            </div>
+            <div class="name-card">
+              <h2>वर</h2>
+              <p class="name">चि. सागर <span class="degree">(PGDM/MBA)</span></p>
+              <p>कै. भानुदास गेना वळकुंडे यांचे नातू वसौ. जनाबाई व श्री. बाळासाहेब भानुदास वळकुंडे (रा. निमगाव (म.) ता. माळशिरस जि. सोलापूर यांचे द्वितीय चिरंजीव)</p>
+            </div>
+          </div>
+
+          <div class="wedding-panel">
+            <h3>|| शुभविवाह ||</h3>
+            <p>शनिवार दि. २०/०६/२०२६ रोजी दुपारी १२ वा. २८ मि. या शुभ मुहूर्तावर विवाह समारंभ.</p>
+          </div>
+
+          <div class="details-grid">
+            <div class="detail-box">
+              <h4>साखरपुडा व हळदी समारंभ</h4>
+              <p>शुक्रवार दि. <span class="important">१९/०६/२०२६</span><br>सायंकाळी <span class="important">९:००</span> वाजता<br>(विवाहस्थळी)</p>
+            </div>
+            <div class="detail-box">
+              <h4>विवाहस्थळ</h4>
+              <p>श्री स्वामी समर्थ मंगल कार्यालय<br>तांदुळवाडी (पंढरपूर-सातारा रोड)<br>ता. माळशिरस, जि. सोलापूर</p>
+            </div>
+          </div>
+
+          <div class="invite-note">
+            आपले नम्र सौ. कुसुम व श्री. रामकृष्ण भानुदास वगरेवरील विनंतीस मान देऊन कार्यास अगत्य यावे ही विनंती.
+          </div>
+
+          <div class="category-grid">
+            <div class="category-card">
+              <h5>आमचे स्नेही व नातेवाईक</h5>
+              <p>सौ. लक्ष्मी अर्जुन, श्री. अर्जुन मच्छिंद्र वगरे, गं.भा. पारुबाई भानुदास वगरे, चि. प्रशांत रामकृष्ण वगरे (MCA), चि. अक्षय अनंता गलांडे (B.Sc.Agri), चि. सुरज अर्जुन वगरे (B.Com), चि. अजय अनंता गलांडे (B.Sc.Agri), चि. यशराजे संजय पाटील (Civil Engg), चि. यश नितीन पाटील, चि. ओमराजे संजय पाटील, चि. वेदांत विष्णू हाके, चि. सागर आबासाहेब पाटील.</p>
+            </div>
+            <div class="category-card">
+              <h5>छोटे निमंत्रक</h5>
+              <p>शौर्य, स्वरा, आरव, अन्वी, हर्ष, प्रांश, संभाव, स्पृहा, देवांश, स्मित, राघव, वैभवी, श्रीशा, रुद्रसमस्त वगरे परिवार.</p>
+            </div>
+            <div class="category-card">
+              <h5>कार्यवाहक</h5>
+              <p>संजय वसंत पाटील (राष्ट्रवादी पुणे शहर उपाध्यक्ष, शिवमल्हार ब्रिगेड महाराष्ट्र राज्य अध्यक्ष), विष्णू वसंत हाके (Force Company Dep. Manager), आबासाहेब शिवाजी पाटील, नितान शिवाजी पाटील, सचिन सखाराम पाटील, ॲड. सुहास सखाराम पाटील (वकील).</p>
+            </div>
+            <div class="category-card">
+              <h5>स्वागतोल्सुक</h5>
+              <p>बापूराव शामराव नारनवर (दूध उत्पादक), सोमनाथ शामराव नारनवर (MBA), प्रवीण तुकाराम हाके (B.E. Mechanical), प्रशांत तुकाराम हाके (M.Tech), रणजित बाळासो जमदाडे (B.Sc.Agri), डॉ. दिनेश बाळासो जमदाडे, सचिन आदिनाथ गोफणे (बागायतदार).</p>
+            </div>
+            <div class="category-card">
+              <h5>व्यवस्थापक</h5>
+              <p>श्री दत्त, भाळवणी ९९२१४९५०५७<br>व्यवस्थापक अमोल नामदेव खुर्द (मामा), राहुल नामदेव खुर्द (मामा), अनंता शंकर गलांडे (काका), शामराव नारायण नारनवर, तुकाराम रामकृष्ण हाके, बाळासो रामकृष्ण हाके, बाळासो रामचंद्र जमदाडे, सुहास दत्तात्रय गोफणे.</p>
+            </div>
+          </div>
+
+          <div class="footer-note">टिप :- कृपया आहेर व भेटवस्तू स्वीकारल्या जाणार नाहीत. आपली उपस्थिती हाच अनमोल आहेर.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cardShell = document.getElementById('cardShell');
+    const openButton = document.getElementById('openButton');
+    const closeButton = document.getElementById('closeButton');
+    const coverFace = cardShell.querySelector('.card-cover');
+
+    function openInvitation() {
+      cardShell.classList.add('opened');
+    }
+
+    openButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      openInvitation();
+    });
+
+    closeButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      cardShell.classList.remove('opened');
+    });
+
+    coverFace.addEventListener('click', () => {
+      openInvitation();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        cardShell.classList.remove('opened');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* Styles for wedding invitation animations */
+
+/* 1. Swing Animation for Hanging Lanterns */
+@keyframes swing {
+  0% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(-6deg);
+  }
+}
+
+.swing-lantern {
+  transform-origin: top center;
+  animation: swing 3.5s ease-in-out infinite;
+}
+
+/* 2. Golden Shimmer/Shine Effect for Text */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(
+    to right,
+    #aa7c11 0%,
+    #e6c875 25%,
+    #ffd700 50%,
+    #e6c875 75%,
+    #aa7c11 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 4s linear infinite;
+  font-weight: bold;
+}
+
+/* 3. Glowing Red-Gold Gradient for "शुभविवाह" */
+@keyframes glow-red-gold {
+  0% {
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.4), 0 0 10px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2), inset 0 0 10px rgba(139, 0, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 20px rgba(139, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5), inset 0 0 15px rgba(139, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.4), 0 0 10px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2), inset 0 0 10px rgba(139, 0, 0, 0.2);
+  }
+}
+
+.glowing-red-gold {
+  background: linear-gradient(135deg, #8b0000 0%, #aa7c11 50%, #8b0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow-red-gold 3s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
+}
+
+/* 4. Royal Zoom-In Effect */
+@keyframes royal-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.royal-zoom {
+  animation: royal-zoom 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 5. Gold Border Shine Animation */
+@keyframes border-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.border-shine-effect {
+  background: linear-gradient(
+    270deg,
+    #aa7c11,
+    #ffd700,
+    #f3e5ab,
+    #ffd700,
+    #aa7c11
+  );
+  background-size: 400% 400%;
+  animation: border-shine 6s ease infinite;
+}
+
+/* 6. Soft Sparkle Fade-in and Float */
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-80px) scale(1);
+    opacity: 0;
+  }
+}
+
+.floating-particle {
+  animation: float-particle 4s ease-out infinite;
+}
+
+/* 7. Line by Line Text Reveal (Fade-up) */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 8. Pulsing Open Button */
+@keyframes pulse-btn {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.pulse-button {
+  animation: pulse-btn 2s infinite;
+}
+
+/* 9. Music Wave Animation */
+@keyframes wave-bounce {
+  0%, 100% {
+    height: 3px;
+  }
+  50% {
+    height: 18px;
+  }
+}
+
+.music-wave-bar {
+  width: 2px;
+  background-color: #ffd700;
+  margin: 0 1px;
+  display: inline-block;
+  animation: wave-bounce 1s ease-in-out infinite;
+}
+
+.music-wave-bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.music-wave-bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.music-wave-bar:nth-child(4) {
+  animation-delay: 0.1s;
+}
+.music-wave-bar:nth-child(5) {
+  animation-delay: 0.3s;
+}
+
+/* 10. Slow Rotating Halo (Mandala background behind Ganesh) */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-halo {
+  animation: spin-slow 35s linear infinite;
+  transform-origin: center center;
+}
+
+/* 11. Diya Flame Flicker Animation */
+@keyframes flame-flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg) opacity(0.9);
+  }
+  50% {
+    transform: scale(1.08) rotate(1deg) opacity(1);
+  }
+}
+
+.flicker-flame {
+  animation: flame-flicker 0.15s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* 12. Interactive Flower Hover Scale */
+.flower-hover-pulse {
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.4s ease;
+  pointer-events: auto !important; /* Enable hover triggers on flowers despite overlay rules */
+}
+
+.flower-hover-pulse:hover {
+  transform: scale(1.15) rotate(15deg) !important;
+  filter: drop-shadow(4px 6px 12px rgba(212, 175, 55, 0.6)) !important;
+}
+
+/* 13. Detailed Ganesh Breathing Pulse and Golden Glow */
+@keyframes ganesh-pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 2px 6px rgba(170, 124, 17, 0.4)) drop-shadow(0 0 4px rgba(255, 215, 0, 0.2));
+  }
+  50% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 6px 18px rgba(170, 124, 17, 0.75)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+  }
+}
+
+.ganesh-animated-icon {
+  animation: ganesh-pulse-glow 4s ease-in-out infinite;
+  transform-origin: center center;
+  transition: all 0.5s ease-in-out;
+}
+
+
